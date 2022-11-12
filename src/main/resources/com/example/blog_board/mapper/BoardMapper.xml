@@ -8,9 +8,7 @@
     </select>
 
     <select id="findAll" resultType="com.example.blog_board.domain.Board">
-        SELECT
-        *
-        FROM tbl_board;
+        SELECT * FROM tbl_board;
     </select>
 
     <select id ="findById" parameterType="Long" resultType="com.example.blog_board.domain.Board">

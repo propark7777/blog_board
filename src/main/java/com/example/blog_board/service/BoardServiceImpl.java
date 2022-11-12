@@ -12,34 +12,38 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 public class BoardServiceImpl implements BoardService{
     private final BoardMapper boardMapper;
-    
+
     @Override
     public int boardCount() {
-        return 0;
+        return boardMapper.boardCount();
     }
 
     @Override
     public List<Board> boardList() {
-        return null;
+        return boardMapper.findAll();
     }
 
     @Override
     public Board findById(Long boardId) {
-        return null;
+        return boardMapper.findById(boardId);
     }
 
     @Override
+    @Transactional
     public Long add(Board board) {
-        return null;
+        boardMapper.save(board);
+        return board.getBoardId();
     }
 
     @Override
+    @Transactional
     public Long update(Board board) {
-        return null;
+        boardMapper.update(board);
+        return board.getBoardId();
     }
 
     @Override
     public void deleteById(Long boardId) {
-
+        boardMapper.delete(boardId);
     }
 }
